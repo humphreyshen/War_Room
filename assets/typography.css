@@ -1,0 +1,24 @@
+.channel_tw{
+    color: white;
+    margin: 0px 0px 0px 10px;
+}
+
+.channel_eng{
+    color: #FFC709;
+    text-align:'left';
+}
+
+.dropdown_text{
+    font-weight:bold;
+    margin: 0px 0px 0px 10px;
+    font-size: 18px
+}
+
+.dropdown{
+    margin: 5px 0px 10px 10px;
+}
+
+.cardbody_s3_value{
+    font-size: 25px;
+    color:#FFC709;
+}

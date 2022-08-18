@@ -1,0 +1,53 @@
+#dropdown {
+    width: 35%;
+}
+
+#dropdown .VirtualizedSelectFocusedOption {
+    background-color: #C0FF6B;
+    color: black;
+}
+
+#dropdown .Select-value-label {
+    color: #1736F5;
+    font-weight: bold;
+    text-align: center;
+}
+
+#datatable_drop_down {
+    width: 35%;
+}
+
+
+#datatable_drop_down .VirtualizedSelectFocusedOption {
+    background-color: #C0FF6B;
+    color: black;
+}
+    
+#datatable_drop_down .Select-value-label {
+    color: #1736F5;
+    font-weight: bold;
+}
+    
+
+#datatable-comment .show-hide {
+    display: none;
+}
+
+.card {
+    background-color: transparent;
+    border-width: 1px;
+    border-color: #C0FF6B;
+}
+
+.section_3_col {
+    margin: auto;
+    width: 15rem;
+}
+
+.mb-3 {
+    margin: auto;
+}
+
+.card-text:last-child {
+    margin: auto;
+}
