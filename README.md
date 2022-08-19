@@ -1,6 +1,7 @@
 # YouTube頻道戰指中心 Youtube Channel Combat Center  
-#### 所有權歸屬為Data_Resort Owned by Data_Resort  
-#### 設計者：Humphrey Shen (Data_Resort)  
+#### 所有權歸屬為Data_Resort (Owned by Data_Resort)
+如需參考或使用請聯繫創作者電子郵件 (If you would like to use it or modify the code please contact the designer through Email)
+#### 創作者：Humphrey Shen (Data_Resort)  
 #### 專案計畫 (Project)：
 Version 1. 頻道基礎資訊、影片基礎資訊 (Basic Channel Information and Basic Video Information)  
 Version 2. 新增觀眾分析 (Adding Audience Analysis)  
