@@ -5,7 +5,8 @@
 Version 1. 頻道基礎資訊、影片基礎資訊 (Basic Channel Information and Basic Video Information)  
 Version 2. 新增觀眾分析 (Adding Audience Analysis)  
 Version 3. 新增觀眾隨機抽獎功能 (Adding Audience Lottery)  
-Version 4. 新增授權資訊 (Adding Authorization Information)   
+Version 4. 新增授權資訊 (Adding Authorization Information)
+Version 5. 新增預測模型 (Adding Prediction Model)
 
 #### 專案宗旨 (Main Idea)：
 提供有別於Youtube後台的「客製化」數據分析平台，提供使用者自訂義的視覺化分析與功能。  
