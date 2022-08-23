@@ -5,17 +5,16 @@ import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd       
 from matplotlib import pyplot as plt
-from sqlalchemy import false
-from yaml import ValueToken
 import datetime as dt
 import time
 from dash import dash_table
 import plotly.graph_objects as go
 import plotly.express as px
 from sklearn.decomposition import PCA
+import seaborn as sns
 # %%
 df = pd.read_csv("D:\Machine_Learning\Hand_Writing_Humphrey\Plotly_Practice\plotly_practice\留言測試_2022_08_15.csv")
-
+df = df.drop("Unnamed: 0",axis=1)
 
 #%%
 # Counting The Total Videos
@@ -29,6 +28,9 @@ df_card_1_name_eng='Published Videos'
 df_count_video_ids=df_count_video['Title'].nunique()
 df_count_video_ids=value_comma(df_count_video_ids)
 
+# Summary of Video Table
+df_vidoe_summary=df_count_video.drop_duplicates(subset='Title',keep='first')
+df_vidoe_summary_select=df_vidoe_summary.loc[:,['video_id','Title','Published_date','Views','like_x','comments','duration']]
 # Count Total Views
 df_card_2_name='總觀看次數'
 df_card_2_name_eng='Total Views'
@@ -249,7 +251,7 @@ datatable_comment_rank=dash_table.DataTable(
         selected_rows=[],           # indices of rows that user selects
         page_action="native",       # all data is passed to the table up-front or not ('none')
         page_current=0,             # page number that user is on
-        page_size=8,                # number of rows visible per page
+        page_size=12,                # number of rows visible per page
         style_cell={                # ensure adequate header width when text is shorter than cell's text
             'width': 0
         },
@@ -281,8 +283,23 @@ datatable_comment_rank=dash_table.DataTable(
         'font_size': '18px'
         }
     )
-
-
+# Comments Ranking
+df_count_video_comment_summary_top_15=df_count_video_comment_summary.sort_values(by='comments_y',ascending=False).head(15)
+comments_ranking = px.bar(df_count_video_comment_summary_top_15, y='comments_y', x='Name', text_auto='.2s',
+            title="留言排行榜<br><sup>Comments Ranking</sup>")
+comments_ranking=comments_ranking.update_layout(plot_bgcolor='#111111',
+                    paper_bgcolor='#111111',
+                    title_font_color='#ffffff',
+                    font_color='#ffffff')
+#Corrlation Analysis
+corr=df_vidoe_summary_select.corr()
+corr_fig=px.imshow(corr,color_continuous_scale='ylgnbu',text_auto=True)
+corr_fig=corr_fig.update_layout(plot_bgcolor='#111111',
+                    paper_bgcolor='#111111',
+                    title = dict(text = '相關係數<br><sup>Correlation</sup>',x = 0.5),
+                    title_font_size=22,
+                    title_font_color='#ffffff',
+                    font_color='#ffffff')
 # Customize your own Layout
 app.layout = html.Div([
     html.Div([
@@ -424,8 +441,13 @@ app.layout = html.Div([
     ],className='section4'),
     
     html.Div([
-        dbc.Col([datatable_comment_rank],width=3,className='datatable_2')
+        dbc.Row([
+                dbc.Col([datatable_comment_rank],width=3,className='datatable_2'),
+                dbc.Col(dcc.Graph(figure=comments_ranking),width=6,className='comments_ranking'),
+                dbc.Col(dcc.Graph(figure=corr_fig),width=3,className='corr_fig')])
     ]),
+    
+
     
     html.Div([
         html.Div([
@@ -634,6 +656,9 @@ def display_s3_8_value(value):
 if __name__=='__main__':
     app.run_server(debug=False)
 
+
+
 # %%
+
 
 # %%
