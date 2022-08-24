@@ -183,16 +183,16 @@ datatable_check=dcc.Checklist(
                 inline=True)
 
 #--------------------
-X = df_df_count_video_ids_date_datatable[['Views', 'like_x', 'comments']]
+#X = df_df_count_video_ids_date_datatable[['Views', 'like_x', 'comments']]
 
-pca = PCA(n_components=3)
-components = pca.fit_transform(X)
-total_var = pca.explained_variance_ratio_.sum() * 100
-fig_test_1 = px.scatter_3d(
-    components, x=0, y=1, z=2,
-    title=f'Total Explained Variance: {total_var:.2f}%',
-    labels={'0': 'PC 1', '1': 'PC 2', '2': 'PC 3'}
-)
+#pca = PCA(n_components=3)
+#components = pca.fit_transform(X)
+#total_var = pca.explained_variance_ratio_.sum() * 100
+#fig_test_1 = px.scatter_3d(
+    #components, x=0, y=1, z=2,
+    #title=f'Total Explained Variance: {total_var:.2f}%',
+    #labels={'0': 'PC 1', '1': 'PC 2', '2': 'PC 3'}
+#)
 #-------------------
 
 #Section_3 KPI
@@ -449,11 +449,11 @@ app.layout = html.Div([
     
 
     
-    html.Div([
-        html.Div([
-            dcc.Graph(figure=fig_test_1)
-        ])
-    ])
+    #html.Div([
+        #html.Div([
+            #dcc.Graph(figure=fig_test_1)
+        #])
+    #])
 ])
 
 
